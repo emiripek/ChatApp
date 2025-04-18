@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class RegisterVC: UIViewController {
     
@@ -113,7 +114,7 @@ class RegisterVC: UIViewController {
         
         registerButton.addTarget(
             self,
-            action: #selector(loginButtonTapped),
+            action: #selector(registerButtonTapped),
             for: .touchUpInside
         )
         
@@ -192,7 +193,7 @@ class RegisterVC: UIViewController {
         )
     }
     
-    @objc private func loginButtonTapped() {
+    @objc private func registerButtonTapped() {
         emailTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
         
@@ -210,6 +211,16 @@ class RegisterVC: UIViewController {
         }
         
         // Firebase Log In
+        
+        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            guard let result = authResult, error == nil else {
+                print("Error creating user")
+                return
+            }
+            
+            let user = result.user
+            print("Created User: \(user)")
+        }
     }
     
     func alertUserRegisterError() {
@@ -235,7 +246,7 @@ extension RegisterVC: UITextFieldDelegate {
         if textField == emailTextField {
             passwordTextField.becomeFirstResponder()
         } else if textField == passwordTextField {
-            loginButtonTapped()
+            registerButtonTapped()
         }
         return true
     }
