@@ -212,21 +212,33 @@ class RegisterVC: UIViewController {
         
         // Firebase Log In
         
-        FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            guard let result = authResult, error == nil else {
-                print("Error creating user")
+        DatabaseManager.shared.userExists(with: email, completion: { [weak self] exists in
+            guard let strongSelf = self else { return }
+            guard !exists else {
+                // user already exists
+                self?.alertUserRegisterError(message: "Looks like a user account for that email address already exists.")
                 return
             }
             
-            let user = result.user
-            print("Created User: \(user)")
-        }
+            FirebaseAuth.Auth.auth().createUser(withEmail: email, password: password, completion: { authResult, error in
+                guard authResult != nil, error == nil else {
+                    print("Error creating user")
+                    return
+                }
+                
+                DatabaseManager.shared.insertUser(with: ChatAppUser(firstName: firstName,
+                                                                    lastName: lastName,
+                                                                    emailAddress: email))
+                
+                strongSelf.navigationController?.dismiss(animated: true)
+            })
+        })
     }
     
-    func alertUserRegisterError() {
+    func alertUserRegisterError(message: String = "Please enter all information to create a new account.") {
         let alert = UIAlertController(
             title: "Register Error",
-            message: "Please enter all information to create a new account.",
+            message: message,
             preferredStyle: .alert
         )
         
