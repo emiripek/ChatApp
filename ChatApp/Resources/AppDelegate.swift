@@ -7,7 +7,8 @@
 
 import UIKit
 import Firebase
-import FacebookCore
+import FBSDKCoreKit
+import GoogleSignIn
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -37,6 +38,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
             annotation: options[UIApplication.OpenURLOptionsKey.annotation]
         )
+        
+        var handled: Bool
+
+          handled = GIDSignIn.sharedInstance.handle(url)
+          if handled {
+            return true
+          }
+
+          // Handle other custom URL types.
+
+          // If not handled by this app, return false.
+          return false
     }
 }
 

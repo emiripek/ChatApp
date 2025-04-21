@@ -11,6 +11,7 @@
 		F92554A32DB2EF6600A340D2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F92554A22DB2EF6600A340D2 /* FirebaseAuth */; };
 		F92554A52DB2EF6600A340D2 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = F92554A42DB2EF6600A340D2 /* FirebaseCore */; };
 		F92554A72DB2EF6600A340D2 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = F92554A62DB2EF6600A340D2 /* FirebaseDatabase */; };
+		F94E177E2DB6741300038B1F /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = F94E177D2DB6741300038B1F /* GoogleSignIn */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F94E177E2DB6741300038B1F /* GoogleSignIn in Frameworks */,
 				F91E65AB2DB3CB64009C3DB5 /* FacebookLogin in Frameworks */,
 				F92554A72DB2EF6600A340D2 /* FirebaseDatabase in Frameworks */,
 				F92554A52DB2EF6600A340D2 /* FirebaseCore in Frameworks */,
@@ -93,6 +95,7 @@
 				F92554A42DB2EF6600A340D2 /* FirebaseCore */,
 				F92554A62DB2EF6600A340D2 /* FirebaseDatabase */,
 				F91E65AA2DB3CB64009C3DB5 /* FacebookLogin */,
+				F94E177D2DB6741300038B1F /* GoogleSignIn */,
 			);
 			productName = ChatApp;
 			productReference = F931F92C2DB11ADD0057F7CE /* ChatApp.app */;
@@ -125,6 +128,7 @@
 			packageReferences = (
 				F92554A12DB2EF6600A340D2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				F91E65A92DB3CB64009C3DB5 /* XCRemoteSwiftPackageReference "facebook-ios-sdk" */,
+				F94E177C2DB6741300038B1F /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = F931F92D2DB11ADD0057F7CE /* Products */;
@@ -168,6 +172,8 @@
 				DEVELOPMENT_TEAM = DQ48F29D8A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ChatApp/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access to take a profile picture";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Please allow access to select a photo for your profile";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -202,6 +208,8 @@
 				DEVELOPMENT_TEAM = DQ48F29D8A;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ChatApp/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Please allow access to take a profile picture";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Please allow access to select a photo for your profile";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -386,6 +394,14 @@
 				minimumVersion = 11.11.0;
 			};
 		};
+		F94E177C2DB6741300038B1F /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -408,6 +424,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F92554A12DB2EF6600A340D2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabase;
+		};
+		F94E177D2DB6741300038B1F /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F94E177C2DB6741300038B1F /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -2,30 +2,36 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Please allow access to select a photo for your profile</string>
-	<key>NSCameraUsageDescription</key>
-	<string>Please allow access to take a profile picture</string>
-    <key>CFBundleURLTypes</key>
-    <array>
-      <dict>
-      <key>CFBundleURLSchemes</key>
-      <array>
-        <string>fb1197781595308308</string>
-      </array>
-      </dict>
-    </array>
-    <key>FacebookAppID</key>
-    <string>1197781595308308</string>
-    <key>FacebookClientToken</key>
-    <string>CLIENT-TOKEN</string>
-    <key>FacebookDisplayName</key>
-    <string>My Chat App</string>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-      <string>fbapi</string>
-      <string>fb-messenger-share-api</string>
-    </array>
+    <key>GIDClientID</key>
+    <string>292993358079-pa9pi15cdh9tem1k0e5mu2kkqf4r75ns.apps.googleusercontent.com</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1197781595308308</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.292993358079-pa9pi15cdh9tem1k0e5mu2kkqf4r75ns</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>1197781595308308</string>
+	<key>FacebookClientToken</key>
+	<string>CLIENT-TOKEN</string>
+	<key>FacebookDisplayName</key>
+	<string>My Chat App</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
